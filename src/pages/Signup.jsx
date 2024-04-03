@@ -17,8 +17,6 @@ const Signup = () => {
         localStorage.setItem('token', res.token)
         localStorage.setItem('role', res.role)
         navigate('/home')
-
-
     }
 
   return (

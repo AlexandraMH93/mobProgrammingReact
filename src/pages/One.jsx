@@ -1,13 +1,17 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { getOne } from '../services/userService'
+import { NameContext } from '../context/userContext'
 
 const One = () => {
-    const [user, setUser] = useState([])
+    /* const [user, setUser] = useState([]) */
+
+    //const userContext = useContext(NameContext)
+    const {user, setUser} = useContext(NameContext)
 
     const handleUser = async () => {
         const res = await getOne()
         setUser(res)
-    }
+    } 
 
     useEffect(() => {handleUser()}, [])
 
@@ -15,14 +19,13 @@ const One = () => {
         <div>
             {user && (
                 <>
-                    <div key={idx}>
-                        <p>{user._id}</p>
+                    {user.name && 
+                    <>
                         <p>{user.name.firstname}</p>
                         <p>{user.name.lastname}</p>
-                        <p>{user.email}</p>
-                        <p>{user.username}</p>
-                        <p>{user.password}</p>
-                    </div>
+                    </>}
+                    <p>{user.email}</p>
+                    <p>{user.username}</p>
                 </>
             )}
         </div>

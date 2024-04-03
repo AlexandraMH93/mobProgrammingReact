@@ -7,6 +7,7 @@ const Header = () => {
 
     const handleLogout = async () => {
         localStorage.removeItem('token')
+        localStorage.removeItem('role')
         navigate('/')
     }
 

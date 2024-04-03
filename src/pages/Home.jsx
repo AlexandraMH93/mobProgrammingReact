@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { NameContext } from '../context/userContext'
 
 const Home = () => {
+  const {user} = useContext(NameContext)
+
   return (
     <div className='main'>
-        Welcome user
+        Welcome {user.name && user.name.firstname}
     </div>
   )
 }

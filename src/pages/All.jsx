@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { getAll } from '../services/userService'
+import { NameContext } from '../context/userContext'
 
 const All = () => {
-    const [users, setUsers] = useState([])
-
+    const [users, setUsers] = useState([]) 
+    
+    
     const handleUsers = async () => {
         const res = await getAll()
         setUsers(res)
@@ -15,15 +17,13 @@ const All = () => {
   return (
     <div>
       <h1>All</h1>
-      {users && users.map((user, idx) => {
+      {users && users.map((element, idx) => {
+        console.log(element)
         return (
             <div key={idx}>
-                <p>{user._id}</p>
-                <p>{user.name.firstname}</p>
-                <p>{user.name.lastname}</p>
-                <p>{user.email}</p>
-                <p>{user.username}</p>
-                <p>{user.password}</p>
+                <p>{element._id}</p>
+                <p>{element.username}</p>
+                <p>{element.role}</p>
 
             </div>
         )
