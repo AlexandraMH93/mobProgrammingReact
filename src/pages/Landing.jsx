@@ -1,9 +1,9 @@
-import React from 'react'
+import { Typography } from '@mui/material'
 
 const Landing = () => {
   return (
-    <div>
-      Landing
+    <div className="main">
+      <Typography variant='h3'>Welcome</Typography>
     </div>
   )
 }

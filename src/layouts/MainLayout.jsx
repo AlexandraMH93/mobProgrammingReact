@@ -6,7 +6,7 @@ const MainLayout = () => {
   return (
     <>
         <Header />
-        <Outlet />
+        <Outlet /> {/* aquí se van intercambiando los hijos que son las pages */}
         <Footer />
     </>
   )
